@@ -1,4 +1,4 @@
-# lincah-frontend
+# Lincah Frontend
 
 ### [Git Lincah Backend](https://github.com/DiogoFGouvea/lincah-backend)
 
