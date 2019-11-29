@@ -1,4 +1,4 @@
-// in src/posts.js
+
 import React from 'react';
 import { 
     List,
@@ -20,7 +20,7 @@ import {
 } from 'react-admin';
 
 const PostTitle = ({ record }) => {
-    return <span>Post {record ? `"${record.title}"` : ''}</span>;
+    return <span>Post {record ? `"${record.title}"` : ''}</span>;    
 };
 
 const PostFilter = (props) => (
@@ -45,15 +45,15 @@ const PostFilter = (props) => (
 //     </List>
 // );
 
-export const PostList = (props) => (
+export const PostList = (props) => (    
     <List filters={<PostFilter />} {...props}>
-        <Responsive
-            small={
+        <Responsive            
+            small={                          
                 <SimpleList
                     primaryText={record => record.title}
                     secondaryText={record => `${record.views} views`}
-                    tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
-                />
+                    tertiaryText={record => new Date(record.published_at).toLocaleDateString()}                    
+                />                
             }
             medium={
                 <Datagrid>
@@ -67,8 +67,8 @@ export const PostList = (props) => (
                 </Datagrid>
             }
         />
-    </List>
-);
+    </List>    
+);    
 
 export const PostEdit = props => (
     <Edit title={<PostTitle />} {...props}>

@@ -1,26 +1,22 @@
-// in src/App.js
+
 import React from 'react';
 import { Admin, Resource} from 'react-admin'; // ListGuesser / EditGuesser
 
-import { PostList, PostEdit, PostCreate } from './posts';
-import { UserList } from './users';
-import Dashboard from './Dashboard';
+import { PostList, PostEdit, PostCreate } from './view/posts';
+import { FeatureList } from './view/features';
+import Dashboard from './view/dashboard';
 import authProvider from './authProvider';
-// import dataProvider from './dataProvider';
+import simpleRestProvider from 'ra-data-simple-rest';
 
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 
-import jsonServerProvider from 'ra-data-json-server';
-
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
-
 const App = () => (
     <Admin dashboard={Dashboard} 
            authProvider={authProvider} 
-           dataProvider={dataProvider}>               
+           dataProvider={simpleRestProvider('http://localhost:3333')}>
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-        <Resource name="users" list={UserList} icon={UserIcon} />
+        <Resource name="features" list={FeatureList} icon={UserIcon} />
     </Admin>
 );
 
