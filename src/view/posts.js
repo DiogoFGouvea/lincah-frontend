@@ -57,12 +57,11 @@ export const PostList = (props) => (
             }
             medium={
                 <Datagrid>
-                    <TextField source="id" />
+                    <TextField source="id" />                    
                     <ReferenceField label="User" source="userId" reference="users">
                         <TextField source="name" />
                     </ReferenceField>
                     <TextField source="title" />
-                    {/* <TextField source="body" /> */}
                     <EditButton />
                 </Datagrid>
             }
@@ -94,3 +93,5 @@ export const PostCreate = props => (
         </SimpleForm>
     </Create>
 );
+
+       
