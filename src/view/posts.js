@@ -32,19 +32,6 @@ const PostFilter = (props) => (
     </Filter>
 );
 
-// export const PostList = props => (
-//     <List filters={<PostFilter />} {...props}>
-//         <Datagrid>
-//             <TextField source="id" />
-//             <ReferenceField source="userId" reference="users">
-//             <TextField source="name" />
-//             </ReferenceField>            
-//             <TextField source="title" />
-//             <EditButton />
-//         </Datagrid>
-//     </List>
-// );
-
 export const PostList = (props) => (    
     <List filters={<PostFilter />} {...props}>
         <Responsive            
