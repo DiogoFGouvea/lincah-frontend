@@ -75,7 +75,7 @@ export const UserStoryEdit = props => (
             <ReferenceInput label="Feature" source="feature_id" reference="features">
                 <SelectInput optionText="nome" />
             </ReferenceInput>           
-            <LongTextInput source="nome" validation={{ required: true }} />
+            <TextInput source="nome" label="Nome da História de usuário" validation={{ required: true }} />
             <SelectInput
                 source="pontuacao"
                 label="Pontuação"
