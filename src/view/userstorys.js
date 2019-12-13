@@ -11,15 +11,14 @@ import {
     TextInput,
     ReferenceInput,
     SelectInput,
-    DisabledInput,
+    //DisabledInput,
     LongTextInput,
     Create,
-    Filter,
+    //Filter,
     Responsive,
     SimpleList,
     NumberField,
-    SelectField,
-    NumberInput
+    SelectField,    
 } from 'react-admin';
 
 const UserStoryTitle = ({ record }) => {
@@ -42,19 +41,26 @@ export const UserStoryList = (props) => (
             small={                          
                 <SimpleList
                     primaryText={record => record.id}
-                    secondaryText={record => `${record.nome} views`}
-                    tertiaryText={record => new Date(record.pontuacao).toLocaleDateString()}                    
+                    secondaryText={record => record.nome}
+                    tertiaryText={record => record.pontuacao}
                 />                
             }
             medium={
                 <Datagrid>                    
-                    <ReferenceField source="feature" reference="features">
+                    <ReferenceField label="Feature" source="feature_id" reference="features">
                         <TextField source="nome" />
                     </ReferenceField>
                     <TextField source="id" />
                     <TextField source="nome" />
                     <NumberField source="pontuacao" />
-                    <TextField source="status" />
+                    <SelectField 
+                        source="status" 
+                        choices={[
+                            { id: 'D', name: 'Definida' },
+                            { id: 'A', name: 'Andamento' },
+                            { id: 'C', name: 'Concluída' },
+                            { id: 'B', name: 'Bloqueada' },
+                        ]} />/>
                     <EditButton />
                 </Datagrid>
             }
@@ -66,24 +72,23 @@ export const UserStoryEdit = props => (
     <Edit title={<UserStoryTitle />} {...props}>
         <SimpleForm>
             <TextField source="id" />
-            <ReferenceInput source="feature" reference="features">
+            <ReferenceInput label="Feature" source="feature_id" reference="features">
                 <SelectInput optionText="nome" />
             </ReferenceInput>           
             <TextInput source="nome" validation={{ required: true }} />
             <SelectInput
-                source="pontuacao" 
+                source="pontuacao"
                 label="Pontuação"
                 choices={[
-                    { id: '1', name: '1'},
-                    { id: '2', name: '2'},
-                    { id: '3', name: '3'},
-                    { id: '5', name: '5'},
-                    { id: '8', name: '8'},
-                    { id: '13', name: '13'},
-                    { id: '20', name: '20'},
-                    { id: '40', name: '40'},
-                    { id: '100', name: '100'},
-                    { id: '?', name: '?'}                                        
+                    { id: 1, name: '1'},
+                    { id: 2, name: '2'},
+                    { id: 3, name: '3'},
+                    { id: 5, name: '5'},
+                    { id: 8, name: '8'},
+                    { id: 13, name: '13'},
+                    { id: 20, name: '20'},
+                    { id: 40, name: '40'},
+                    { id: 100, name: '100'}                    
                 ]} />            
             <SelectInput
                 source="status" 
@@ -118,8 +123,7 @@ export const UserStoryCreate = props => (
                     { id: '13', name: '13'},
                     { id: '20', name: '20'},
                     { id: '40', name: '40'},
-                    { id: '100', name: '100'},
-                    { id: '?', name: '?'}                                        
+                    { id: '100', name: '100'}
                 ]} />            
             <SelectInput
                 source="status" 
