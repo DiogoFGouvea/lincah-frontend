@@ -1,15 +1,15 @@
 
 import React from 'react';
-import { Admin, Resource} from 'react-admin'; // ListGuesser / EditGuesser
+import { Admin, Resource} from 'react-admin';
 
 import { FeatureList, FeatureEdit, FeatureCreate } from './view/features';
 import { UserStoryList, UserStoryEdit, UserStoryCreate } from './view/userstorys';
 import Dashboard from './view/dashboard';
 
-//import authProvider from './authProvider';
 import simpleRestProvider from 'ra-data-simple-rest';
 
-import FeatureIcon from '@material-ui/icons/Group';
+import FeatureIcon from '@material-ui/icons/Folder';
+import userstorysIcon from '@material-ui/icons/FormatListBulleted';
 
 const App = () => (    
     <Admin dashboard={Dashboard}                        
@@ -26,7 +26,7 @@ const App = () => (
             list={UserStoryList} 
             edit={UserStoryEdit} 
             create={UserStoryCreate} 
-            icon={FeatureIcon}        
+            icon={userstorysIcon}        
         />        
     </Admin>
 );

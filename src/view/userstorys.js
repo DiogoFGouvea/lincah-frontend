@@ -47,10 +47,10 @@ export const UserStoryList = (props) => (
             }
             medium={
                 <Datagrid>                    
+                    <TextField source="id" />
                     <ReferenceField label="Feature" source="feature_id" reference="features">
                         <TextField source="nome" />
-                    </ReferenceField>
-                    <TextField source="id" />
+                    </ReferenceField>                    
                     <TextField source="nome" />
                     <NumberField source="pontuacao" />
                     <SelectField 
@@ -60,7 +60,7 @@ export const UserStoryList = (props) => (
                             { id: 'A', name: 'Andamento' },
                             { id: 'C', name: 'Concluída' },
                             { id: 'B', name: 'Bloqueada' },
-                        ]} />/>
+                        ]} />
                     <EditButton />
                 </Datagrid>
             }
