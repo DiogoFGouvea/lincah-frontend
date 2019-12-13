@@ -22,7 +22,7 @@ import {
 } from 'react-admin';
 
 const UserStoryTitle = ({ record }) => {
-    return <span>UserStory {record ? `"${record.title}"` : ''}</span>;    
+    return <span>História de usuário {record ? `"${record.nome}"` : ''}</span>;    
 };
 
 // const UserStoryFilter = (props) => (
@@ -36,7 +36,7 @@ const UserStoryTitle = ({ record }) => {
 
 export const UserStoryList = (props) => (    
     // <List filters={<UserStoryFilter />} {...props}>
-    <List {...props}>
+    <List title={<UserStoryTitle />} {...props}>
         <Responsive            
             small={                          
                 <SimpleList

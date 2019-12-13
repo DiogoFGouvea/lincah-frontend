@@ -22,7 +22,10 @@ const App = () => (
             icon={FeatureIcon} />
         
         <Resource name="userstorys"         
-            options={{ label: 'Histórias' }}
+            options={{ 
+                label: 'Histórias',
+                title: 'Histórias de usuário' 
+            }}
             list={UserStoryList} 
             edit={UserStoryEdit} 
             create={UserStoryCreate} 
