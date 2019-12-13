@@ -13,7 +13,7 @@ import userstorysIcon from '@material-ui/icons/FormatListBulleted';
 
 const App = () => (    
     <Admin dashboard={Dashboard}                        
-           dataProvider={simpleRestProvider('http://localhost:3333')}>
+           dataProvider={simpleRestProvider(process.env.REACT_APP_API_URL || 'http://localhost:3333')}>
         
         <Resource name="features" 
             list={FeatureList} 
