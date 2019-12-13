@@ -39,10 +39,10 @@ export const UserStoryList = (props) => (
     <List title={<UserStoryTitle />} {...props}>
         <Responsive            
             small={                          
-                <SimpleList
-                    primaryText={record => record.id}
-                    secondaryText={record => record.nome}
-                    tertiaryText={record => record.pontuacao}
+                <SimpleList                    
+                    primaryText={record => record.nome}
+                    secondaryText={record => `ID: ${record.id}`}
+                    tertiaryText={record => `${record.pontuacao} Pontos`}
                 />                
             }
             medium={
@@ -75,7 +75,7 @@ export const UserStoryEdit = props => (
             <ReferenceInput label="Feature" source="feature_id" reference="features">
                 <SelectInput optionText="nome" />
             </ReferenceInput>           
-            <TextInput source="nome" validation={{ required: true }} />
+            <LongTextInput source="nome" validation={{ required: true }} />
             <SelectInput
                 source="pontuacao"
                 label="Pontuação"

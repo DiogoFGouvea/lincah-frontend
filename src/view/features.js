@@ -39,9 +39,8 @@ export const FeatureList = (props) => (
         <Responsive            
             small={                          
                 <SimpleList
-                    primaryText={record => record.name}
-                    secondaryText={record => `${record.id} views`}
-                    tertiaryText={record => (record.descricao)}                    
+                    primaryText={record => record.nome}
+                    tertiaryText={record => `ID: ${record.id}`}                    
                 />                
             }
             medium={
