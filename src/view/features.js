@@ -3,25 +3,25 @@ import {
     List,
     Datagrid,
     TextField,
-    ReferenceField,
+    //ReferenceField,
     EditButton,
     Edit,
     SimpleForm,
     TextInput,
-    ReferenceInput,
-    SelectInput,
-    DisabledInput,
+    //ReferenceInput,
+    //SelectInput,
+    //DisabledInput,
     LongTextInput,
     Create,
-    Filter,
+    //Filter,
     Responsive,
-    SimpleList,
-    EmailField    
+    SimpleList
+    //EmailField    
 } from 'react-admin';
-import RichTextInput from 'ra-input-rich-text';
+
 
 const FeatureTitle = ({ record }) => {
-    return <span>Feature {record ? `"${record.featureId}"` : ''}</span>;    
+    return <span>Feature {record ? `"${record.nome}"` : ''}</span>;    
 };
 
 // const FeatureFilter = (props) => (
@@ -40,13 +40,13 @@ export const FeatureList = (props) => (
             small={                          
                 <SimpleList
                     primaryText={record => record.name}
-                    secondaryText={record => `${record.featureId} views`}
+                    secondaryText={record => `${record.id} views`}
                     tertiaryText={record => (record.descricao)}                    
                 />                
             }
             medium={
-                <Datagrid rowClick="edit">                    
-                    <TextField source="featureId" label="Feature"/>                    
+                <Datagrid rowClick="edit">                                        
+                    <TextField source="id" label="Feature"/>                    
                     <TextField source="nome" label="Nome"/>                    
                     <EditButton />
                 </Datagrid>
@@ -58,7 +58,7 @@ export const FeatureList = (props) => (
 export const FeatureEdit = props => (
     <Edit title={<FeatureTitle />} {...props}>
         <SimpleForm>            
-            <TextInput disabled source="featureId" label="Código da Feature" />
+            <TextInput disabled source="id" label="Código da Feature" />
             <TextInput source="nome" label="Nome" />
             <LongTextInput source="descricao" label="Descrição" />
         </SimpleForm>
@@ -69,9 +69,9 @@ export const FeatureEdit = props => (
 export const FeatureCreate = props => (
     <Create {...props}>
         <SimpleForm>            
-            <TextInput source="featureId" label="Código da Feature" validation={{ required: true }} />
+            <TextInput disabled source="id" label="Código da Feature" />
             <TextInput source="nome" label="Nome"  validation={{ required: true }}/>
-            <RichTextInput source="descricao" validation={{ required: true }} />
+            <LongTextInput source="descricao" validation={{ required: true }} />
         </SimpleForm>
     </Create>
 );

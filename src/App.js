@@ -3,20 +3,31 @@ import React from 'react';
 import { Admin, Resource} from 'react-admin'; // ListGuesser / EditGuesser
 
 import { FeatureList, FeatureEdit, FeatureCreate } from './view/features';
-import { PostList, PostEdit, PostCreate } from './view/posts';
+import { UserStoryList, UserStoryEdit, UserStoryCreate } from './view/userstorys';
 import Dashboard from './view/dashboard';
 
 //import authProvider from './authProvider';
 import simpleRestProvider from 'ra-data-simple-rest';
 
-import PostIcon from '@material-ui/icons/Book';
 import FeatureIcon from '@material-ui/icons/Group';
 
 const App = () => (    
     <Admin dashboard={Dashboard}                        
            dataProvider={simpleRestProvider('http://localhost:3333')}>
-        <Resource name="features" list={FeatureList} edit={FeatureEdit} create={FeatureCreate} icon={FeatureIcon} />   
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />             
+        
+        <Resource name="features" 
+            list={FeatureList} 
+            edit={FeatureEdit} 
+            create={FeatureCreate} 
+            icon={FeatureIcon} />
+        
+        <Resource name="userstorys"         
+            options={{ label: 'Histórias' }}
+            list={UserStoryList} 
+            edit={UserStoryEdit} 
+            create={UserStoryCreate} 
+            icon={FeatureIcon}        
+        />        
     </Admin>
 );
 
